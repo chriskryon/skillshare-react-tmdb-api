@@ -1,4 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { Link } from "react-router-dom"
+
 const Navbar = () => {
   return (
     <nav
@@ -6,9 +8,9 @@ const Navbar = () => {
       data-bs-theme="dark"
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           Movie Browser
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -24,19 +26,19 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
+              <Link className="nav-link" to="/about">
+                About us
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
+              <Link className="nav-link disabled" aria-disabled="true" to="/">
+                Coming soon
+              </Link>
             </li>
           </ul>
           <form className="d-flex" role="search">
