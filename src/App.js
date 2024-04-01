@@ -26,7 +26,7 @@ function App() {
   }, [searchText])
 
   return (
-    <div>
+    <div className="bg-dark">
       <Navbar searchText={searchText} setSearchText={setSearchText} />
       <Routes>
         <Route path="/" element={<Home />} />

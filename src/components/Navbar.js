@@ -11,7 +11,7 @@ const Navbar = ({ searchText, setSearchText }) => {
 
   return (
     <nav
-      className="navbar bg-dark navbar-expand-lg bg-body-tertiary"
+      className="navbar bg-dark navbar-expand-lg bg-body-tertiary "
       data-bs-theme="dark"
     >
       <div className="container-fluid">
