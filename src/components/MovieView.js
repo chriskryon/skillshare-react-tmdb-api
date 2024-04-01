@@ -1,25 +1,36 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import Hero from "./Hero"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-const About = () => {
+const MovieView = () => {
   const { id } = useParams()
-  console.log(id)
-
   const [movieDetails, setMovieDetails] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
+
+  console.log(id)
+  const API_URL = "bcbbc50ef511c912a6912595a0be1239"
+  const URL = `https://api.themoviedb.org/3/movie/${id}?language=pt-BR&api_key=${API_URL}`
 
   useEffect(() => {
     console.log("API Request")
+    fetch(URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setTimeout(() => {
+          setMovieDetails(data)
+          setIsLoading(false)
+        }, 2000)
+      })
   }, [id])
 
-  const API_URL = "bcbbc50ef511c912a6912595a0be1239"
-  const URL = `https://api.themoviedb.org/3/movie/1?language=pt-BR&api_key=${API_URL}`
+  function renderMovieDetails() {
+    if (isLoading) return <Hero text={"Loading..."} />
+    if (movieDetails) return <Hero text={movieDetails.original_title} />
+  }
 
-  return (
-    <>
-      <Hero text={"Movie detail view"} />
-    </>
-  )
+  return renderMovieDetails()
 }
 
-export default About
+export default MovieView
