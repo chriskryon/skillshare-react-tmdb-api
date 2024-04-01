@@ -5,6 +5,7 @@ import About from "./components/About"
 import { Routes, Route } from "react-router-dom"
 import SearchView from "./components/SearchView"
 import { useEffect, useState } from "react"
+import MovieView from "./components/MovieView"
 
 function App() {
   const [searchResults, setSearchResults] = useState([])
@@ -35,7 +36,8 @@ function App() {
           element={
             <SearchView keyword={searchText} searchResults={searchResults} />
           }
-        ></Route>
+        />
+        <Route path="/movies/:id" element={<MovieView />} />
       </Routes>
     </div>
   )
