@@ -27,7 +27,35 @@ const MovieView = () => {
 
   function renderMovieDetails() {
     if (isLoading) return <Hero text={"Loading..."} />
-    if (movieDetails) return <Hero text={movieDetails.original_title} />
+    if (movieDetails) {
+      const posterUrl = `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
+      const backdropUrl = `https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`
+      console.log(backdropUrl)
+
+      return (
+        <>
+          <Hero text={movieDetails.original_title} backdrop={backdropUrl} />
+          <div
+            className="bg-dark container text-light my-5"
+            data-bs-theme="dark"
+          >
+            <div className="row">
+              <div className="col-md-3">
+                <img
+                  src={posterUrl}
+                  alt="..."
+                  className="img-fluid shadow rounded"
+                />
+              </div>
+              <div className="col-md-9">
+                <h2>{movieDetails.original_title}</h2>
+                <p className="lead">{movieDetails.overview}</p>
+              </div>
+            </div>
+          </div>
+        </>
+      )
+    }
   }
 
   return renderMovieDetails()
