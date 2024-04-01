@@ -7,7 +7,7 @@ const Home = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-8 offset-lg-2 my-5">
-            <p>
+            <p className="lead">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
               ultricies, nunc nec vehicula ultricies, nunc nec vehicula
               ultricies, nunc nec vehicula ultricies, nunc nec vehicula

@@ -1,7 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Link } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = ({ searchText, setSearchText }) => {
+  const updateSearchText = (e) => {
+    setSearchText(e.target.value)
+  }
+
   return (
     <nav
       className="navbar bg-dark navbar-expand-lg bg-body-tertiary"
@@ -47,6 +51,8 @@ const Navbar = () => {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              value={searchText}
+              onChange={updateSearchText}
             />
             <button className="btn btn-outline-success" type="submit">
               Search
