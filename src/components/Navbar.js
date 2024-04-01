@@ -1,14 +1,11 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { useNavigate, Link } from "react-router-dom"
 
-const Navbar = ({ onSearch }) => {
-  const [searchText, setSearchText] = useState("")
-
-  const handleSearch = () => {
-    onSearch(searchText)
-  }
+const Navbar = ({ searchText, setSearchText }) => {
+  const navigate = useNavigate()
 
   const updateSearchText = (e) => {
+    navigate("/search")
     setSearchText(e.target.value)
   }
 
@@ -51,7 +48,7 @@ const Navbar = ({ onSearch }) => {
               </Link>
             </li>
           </ul>
-          <div className="d-flex">
+          <form className="d-flex" role="search">
             <input
               className="form-control me-2"
               type="search"
@@ -60,10 +57,10 @@ const Navbar = ({ onSearch }) => {
               value={searchText}
               onChange={updateSearchText}
             />
-            <button className="btn btn-outline-success" onClick={handleSearch}>
+            <button className="btn btn-outline-success" type="submit">
               Search
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </nav>
